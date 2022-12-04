@@ -2,21 +2,25 @@
 
 {
   fonts = {
-    enableDefaultFonts = true;
+    enableDefaultFonts = false;
 
     fonts = with pkgs; [
-      # NOTE: Some fonts may break colour emojis in Chrome
-      # cf. https://github.com/NixOS/nixpkgs/issues/69073#issuecomment-621982371
-      # If this happens , keep noto-fonts-emoji and try disabling others (nerdfonts, etc.)
-      noto-fonts-emoji
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
+      liberation_ttf
       fira-code
       fira-code-symbols
-      cascadia-code
-      nerdfonts
-      b612
+      mplus-outline-fonts.githubRelease
+      dina-font
+      proggyfonts
     ];
+
+    fontconfig.defaultFonts = {
+        serif = [ "Noto Serif" "Noto Serif CJK SC" ];
+        sansSerif = [ "Noto Sans" "Noto Sans CJK SC" ];
+        monospace = [ "Noto Sans Mono" "Noto Sans Mono CJK SC" ];
+        emoji = [ "Noto Color Emoji" ];
+      };
   };
 }

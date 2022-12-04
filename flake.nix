@@ -32,7 +32,6 @@
           home-manager.users.wilson = {
             imports = [
               ./home/git.nix
-              ./home/fcitx5.nix
               ./home/zsh.nix
               ./home/fish.nix
               ./home/autojump.nix

@@ -8,10 +8,21 @@
   environment.systemPackages = with pkgs; [
     neofetch
     firefox
-    discord
+    chromium
   ];
 
-  i18n.defaultLocale = "en_HK.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.inputMethod = {
+
+    enabled = "ibus";
+    ibus.engines = with pkgs.ibus-engines; [
+      mozc
+      table-chinese
+      table
+      table-others
+    ];
+  };
 
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
 
