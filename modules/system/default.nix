@@ -3,6 +3,7 @@
     ./fonts.nix
     ./vscode.nix
     ./docker.nix
+    ./input-method.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -16,20 +17,8 @@
     awscli2
     stack
     git
+    discord-canary
   ];
-
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.inputMethod = {
-
-    enabled = "ibus";
-    ibus.engines = with pkgs.ibus-engines; [
-      mozc
-      table-chinese
-      table
-      table-others
-    ];
-  };
 
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
 
@@ -47,10 +36,4 @@
     layout = "us";
     xkbVariant = "";
   };
-
-  # Speed up boot
-  # https://discourse.nixos.org/t/boot-faster-by-disabling-udev-settle-and-nm-wait-online/6339
-  systemd.services.systemd-udev-settle.enable = false;
-  systemd.services.NetworkManager-wait-online.enable = false;
-
 }
