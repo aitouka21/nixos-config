@@ -15,6 +15,7 @@ import Termonad
   , confirmExit
   , cursorBlinkMode
   , defaultConfigOptions
+  , defaultMain
   , defaultTMConfig
   , options
   , showMenu
@@ -111,4 +112,4 @@ main = do
   let newTMConfig = addColourExtension myTMConfig myColourExt
 
   -- Start Termonad with our updated 'TMConfig'.
-  start newTMConfig
+  defaultMain newTMConfig
