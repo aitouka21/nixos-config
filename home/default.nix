@@ -7,5 +7,6 @@
     ./termonad/termonad.nix
     ./direnv.nix
     ./email.nix
+    ./xmonad/xmonad.nix
   ];
 }

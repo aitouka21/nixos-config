@@ -27,7 +27,6 @@ in
       inherit realName;
       primary = true;
       himalaya.enable = true;
-      himalaya.backend = "imap";
       address = "wscheungae@gmail.com";
       userName = "wscheungae@gmail.com";
       passwordCommand = "echo 123";
