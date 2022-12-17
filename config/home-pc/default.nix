@@ -2,7 +2,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
@@ -16,12 +17,14 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/9d6542eb-1fcd-44b3-94ee-eb15b96fad10";
+    {
+      device = "/dev/disk/by-uuid/9d6542eb-1fcd-44b3-94ee-eb15b96fad10";
       fsType = "ext4";
     };
 
   fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/AD14-1890";
+    {
+      device = "/dev/disk/by-uuid/AD14-1890";
       fsType = "vfat";
     };
 
@@ -37,6 +40,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  networking.hostName = "nokia3310";
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
@@ -70,10 +75,9 @@
     isNormalUser = true;
     description = "Wilson";
     extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
   };
 
-  nixpkgs.config.allowUnfree = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -9,6 +9,13 @@
     neofetch
     firefox
     chromium
+    slack
+    jq
+    lsof
+    pgcli
+    awscli2
+    stack
+    git
   ];
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -25,6 +32,8 @@
   };
 
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
+
+  nixpkgs.config.allowUnfree = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;

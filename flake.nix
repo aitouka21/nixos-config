@@ -17,44 +17,42 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-    nixosConfigurations = let
 
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
+    nixosConfigurations =
+      let
 
-      homeFeatures = [
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit system inputs; };
-          home-manager.users.wilson = {
-            imports = [
-              ./home/git.nix
-              ./home/zsh.nix
-              ./home/fish.nix
-              ./home/autojump.nix
-              ./home/nix-index.nix
-            ];
-            home.stateVersion = "21.11";
-          };
-        }
-      ];
-    in {
+        system = "x86_64-linux";
+        pkgs = nixpkgs.legacyPackages.${system};
 
-      home-pc = nixpkgs.lib.nixosSystem {
-        inherit system;
+        homeFeatures = [
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit system inputs; };
+            home-manager.users.wilson = {
+              imports = [
+                ./home/default.nix
+              ];
+              home.stateVersion = "21.11";
+            };
+          }
+        ];
+      in
+      {
 
-        specialArgs = inputs;
-        modules = [
-          # system config
-          ./systems/home-pc.nix
-          ./location.nix
-          ./nixos/default.nix
-        ] ++ homeFeatures;
+        home-pc = nixpkgs.lib.nixosSystem {
+          inherit system;
+
+          specialArgs = inputs;
+          modules = [
+            # system config
+            ./config/home-pc/default.nix
+            ./location.nix
+            ./nixos/default.nix
+          ] ++ homeFeatures;
+        };
       };
-      
-    };
   };
 }
