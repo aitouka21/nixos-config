@@ -18,11 +18,6 @@
     stack
     git
     discord-canary
-
-    haskellPackages.xmonad
-    haskellPackages.xmonad-extras
-    haskellPackages.xmonad-contrib
-    haskellPackages.monad-logger
   ];
 
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
