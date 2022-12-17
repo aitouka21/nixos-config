@@ -8,7 +8,7 @@
     ./direnv.nix
     ./email.nix
     ./xmonad/xmonad.nix
-    ./rofi.nix
+    ./rofi/rofi.nix
     ./picom.nix
   ];
 }
