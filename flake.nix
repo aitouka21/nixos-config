@@ -33,6 +33,7 @@
             home-manager.extraSpecialArgs = { inherit system inputs; };
             home-manager.users.wilson = {
               imports = [
+                ./modules/home-manager/termonad.nix
                 ./home/default.nix
               ];
               home.stateVersion = "21.11";
