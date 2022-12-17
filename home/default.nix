@@ -8,5 +8,6 @@
     ./direnv.nix
     ./email.nix
     ./xmonad/xmonad.nix
+    ./rofi.nix
   ];
 }

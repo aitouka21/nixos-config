@@ -27,6 +27,7 @@ keyBindings :: [(String, X ())]
 keyBindings =
   [ ("M-f", spawn "firefox")
   , ("M-g", spawn "chromium")
+  , ("M-d", spawn "rofi -show run")
   ]
 
 
