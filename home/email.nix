@@ -14,17 +14,6 @@ let
         port = 465;
       };
     };
-
-    zmail = {
-      imap = {
-        host = "zmail.offbeattech.com";
-        port = 993;
-      };
-      smtp = {
-        host = "zmail.offbeattech.com";
-        port = 465;
-      };
-    };
   };
 in
 {
@@ -41,14 +30,6 @@ in
       himalaya.backend = "imap";
       address = "wscheungae@gmail.com";
       userName = "wscheungae@gmail.com";
-      passwordCommand = "echo 123";
-    };
-
-    offbeat = servers.zmail // {
-      inherit realName;
-      himalaya.enable = true;
-      address = "wilson.cheung@offbeattech.com";
-      userName = "wilson.cheung@offbeattech.com";
       passwordCommand = "echo 123";
     };
   };
