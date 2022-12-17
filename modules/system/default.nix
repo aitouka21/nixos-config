@@ -18,6 +18,7 @@
     stack
     git
     discord-canary
+    feh
   ];
 
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
@@ -30,6 +31,7 @@
   services.xserver.displayManager.defaultSession = "none+xmonad";
   services.xserver.displayManager.sessionCommands = ''
     xrandr --output DisplayPort-0 --pos 0x0 --output HDMI-A-0 --pos 0x1080
+    feh --bg-fill ~/wallpaper.png
   '';
 
   # Enable the GNOME Desktop Environment.

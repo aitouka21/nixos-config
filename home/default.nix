@@ -9,5 +9,6 @@
     ./email.nix
     ./xmonad/xmonad.nix
     ./rofi.nix
+    ./picom.nix
   ];
 }
