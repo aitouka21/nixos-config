@@ -3,7 +3,30 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      font.size = 10;
+      font = {
+        size = 10;
+
+        normal = {
+          family = "Fira Code";
+          style = "Regular";
+        };
+
+        bold = {
+          family = "Fira Code";
+          style = "Bold";
+        };
+
+        italic = {
+          family = "Fira Code";
+          style = "Italic";
+        };
+
+        bold_italic = {
+          family = "Fira Code";
+          style = "Bold Italic";
+        };
+      };
+
       window = {
         padding.x = 15;
         padding.y = 15;
