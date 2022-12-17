@@ -33,8 +33,8 @@
             home-manager.extraSpecialArgs = { inherit system inputs; };
             home-manager.users.wilson = {
               imports = [
-                ./modules/home-manager/termonad.nix
                 ./home/default.nix
+                ./modules/home-manager/default.nix
               ];
               home.stateVersion = "21.11";
             };
@@ -49,9 +49,9 @@
           specialArgs = inputs;
           modules = [
             # system config
-            ./config/home-pc/default.nix
             ./location.nix
-            ./nixos/default.nix
+            ./config/home-pc/default.nix
+            ./modules/system/default.nix
           ] ++ homeFeatures;
         };
       };
