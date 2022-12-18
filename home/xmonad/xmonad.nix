@@ -9,4 +9,9 @@ with pkgs;
       config = ./xmonad.hs;
     };
   };
+
+  programs.xmobar = {
+    enable = true;
+    extraConfig = lib.readFile ./xmobarrc;
+  };
 }

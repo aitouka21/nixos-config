@@ -12,6 +12,7 @@ with pkgs; {
 
     shellAliases = {
       ls = "${exa}/bin/exa";
+      c = "code . && exit 0";
       fuck-build = "sudo nixos-rebuild switch --flake /home/wilson/nixos-config#home-pc";
     };
 
