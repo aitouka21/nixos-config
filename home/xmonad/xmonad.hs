@@ -1,5 +1,5 @@
 import           XMonad
-import           XMonad.Actions.UpdatePointer     (updatePointer)
+import           XMonad.Actions.UpdatePointer
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.ManageDocks
@@ -14,19 +14,14 @@ import           XMonad.Layout.ThreeColumns
 import           XMonad.Util.EZConfig
 import           XMonad.Util.Loggers
 
-myBorderWith :: Dimension
-myBorderWith = 2
+myBorderWidth :: Dimension
+myBorderWidth = 1
+
+myNormalBorderColor :: String
+myNormalBorderColor = "#222222"
 
 myFocusedBorderColor :: String
 myFocusedBorderColor = "#8087ee"
-
-myConfig = def
-  { modMask  = mod4Mask
-  , terminal = "alacritty"
-  , layoutHook = myLayout
-  , borderWidth = myBorderWith
-  , focusedBorderColor = myFocusedBorderColor
-  }
 
 myKeys :: [(String, X ())]
 myKeys =
@@ -35,9 +30,11 @@ myKeys =
   , ("M-d", spawn "rofi -show run")
   ]
 
-myLayout = tiled ||| Mirror tiled ||| Full ||| Circle ||| Grid
+myLayout = tiled ||| Mirror tiled ||| full ||| grid
   where
-    tiled    = smartSpacing 5 $ Tall nmaster delta ratio
+    tiled    = spacing 5 $ Tall nmaster delta ratio
+    full     = spacing 5 Full
+    grid     = spacing 5 Grid
     nmaster  = 1      -- Default number of windows in the master pane
     ratio    = 1/2    -- Default proportion of screen occupied by master pane
     delta    = 3/100  -- Percent of screen to increment by when resizing panes
@@ -52,8 +49,9 @@ main = xmonad
     { modMask  = mod4Mask
     , terminal = "alacritty"
     , layoutHook = myLayout
-    , borderWidth = myBorderWith
+    , borderWidth = myBorderWidth
     , focusedBorderColor = myFocusedBorderColor
+    , normalBorderColor = myNormalBorderColor
     , logHook = updatePointer (0.5, 0.5) (0, 0)
     , workspaces = ["I", "GO", "TO", "SCHOOL", "BY", "BUS", "HOW", "ABOUT", "YOU"]
     } `additionalKeysP` myKeys
@@ -62,7 +60,7 @@ myXmobarPP :: PP
 myXmobarPP = def
     { ppSep             = magenta " • "
     , ppTitleSanitize   = xmobarStrip
-    , ppCurrent         = wrap " " "" . xmobarBorder "Top" "#8be9fd" 2
+    , ppCurrent         = wrap " " "" . xmobarBorder "Bottom" "#8087ee" 2
     , ppHidden          = white . wrap " " ""
     , ppHiddenNoWindows = lowWhite . wrap " " ""
     , ppUrgent          = red . wrap (yellow "!") (yellow "!")
