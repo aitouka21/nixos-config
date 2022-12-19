@@ -10,5 +10,6 @@
     ./xmonad/xmonad.nix
     ./rofi/rofi.nix
     ./picom.nix
+    ./neovim/neovim.nix
   ];
 }
