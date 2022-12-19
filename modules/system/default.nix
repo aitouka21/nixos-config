@@ -19,6 +19,7 @@
     git
     discord-canary
     feh
+    nodejs
   ];
 
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
@@ -37,7 +38,7 @@
 
       sessionCommands = ''
         xrandr --output DisplayPort-0 --pos 0x0 --output HDMI-A-0 --pos 0x1080
-        feh --bg-fill ~/wallpaper2.png
+        feh --bg-fill ~/wallpaper.png
       '';
     };
   };
