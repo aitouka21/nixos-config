@@ -3,14 +3,13 @@ let
   realName = "Wilson Cheung";
 
   servers = {
-    gmail = {
+    zmail = {
       imap = {
-        host = "imap.gmail.com";
+        host = "zmail.offbeattech.com";
         port = 993;
-        tls.useStartTls = true;
       };
       smtp = {
-        host = "smtp.gmail.com";
+        host = "zmail.offbeattech.com";
         port = 465;
       };
     };
@@ -21,15 +20,21 @@ in
     enable = true;
   };
 
-  # FIXME: Error: cannot parse config file, missing field `backend`
   accounts.email.accounts = {
-    gmail = servers.gmail // {
+    zmail = servers.zmail // {
       inherit realName;
       primary = true;
-      himalaya.enable = true;
-      address = "wscheungae@gmail.com";
-      userName = "wscheungae@gmail.com";
-      passwordCommand = "echo 123";
+      himalaya = {
+        enable = true;
+
+        settings = {
+          backend = "imap";
+          sender = "smtp";
+        };
+      };
+      address = "wilson.cheung@offbeattech.com";
+      userName = "wilson.cheung@offbeattech.com";
+      passwordCommand = "pass show Offbeat/wilson.cheung@offbeattech.com";
     };
   };
 }

@@ -11,5 +11,6 @@
     ./rofi/rofi.nix
     ./picom.nix
     ./neovim/neovim.nix
+    ./pass.nix
   ];
 }

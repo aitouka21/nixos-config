@@ -1,9 +1,9 @@
 { pkgs, ... }:
-{ 
+{
   imports = [
-  #   ./rust.nix
+    #   ./rust.nix
   ];
-  
+
   programs.neovim = {
     enable = true;
 
@@ -19,6 +19,7 @@
       tokyonight-nvim
       vim-nix
       vim-markdown
+      himalaya-vim
     ];
 
     extraConfig = ''
@@ -29,6 +30,7 @@
 
     extraPackages = [
       pkgs.nodejs
+      pkgs.himalaya
     ];
   };
 }
