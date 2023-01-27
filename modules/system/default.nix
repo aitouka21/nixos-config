@@ -15,7 +15,6 @@
     lsof
     pgcli
     awscli2
-    stack
     git
     discord-canary
     feh
