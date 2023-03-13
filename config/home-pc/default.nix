@@ -53,6 +53,9 @@
   # high-resolution display
   hardware.video.hidpi.enable = lib.mkDefault true;
 
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Enable CUPS to print documents.
