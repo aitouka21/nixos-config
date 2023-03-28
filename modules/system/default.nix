@@ -22,7 +22,10 @@
     postman
     via
     pavucontrol
+    ibus-theme-tools
   ];
+
+  services.gnome.gnome-keyring.enable = true;
 
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
 
