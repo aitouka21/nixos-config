@@ -40,7 +40,9 @@ myLayout = tiled ||| Mirror tiled ||| full ||| grid
     delta    = 3/100  -- Percent of screen to increment by when resizing panes
 
 main :: IO ()
-main = xmonad
+main = do
+  spawn "ibus-daemon -drx"
+  xmonad
      . ewmhFullscreen
      . ewmh
      $ withEasySB (statusBarProp "xmobar -x 0" (pure myXmobarPP)) defToggleStrutsKey
@@ -53,7 +55,7 @@ main = xmonad
     , focusedBorderColor = myFocusedBorderColor
     , normalBorderColor = myNormalBorderColor
     , logHook = updatePointer (0.5, 0.5) (0, 0)
-    , workspaces = ["I", "GO", "TO", "SCHOOL", "BY", "BUS", "HOW", "ABOUT", "YOU"]
+    , workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     } `additionalKeysP` myKeys
 
 myXmobarPP :: PP
