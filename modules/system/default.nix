@@ -43,7 +43,7 @@
 
       sessionCommands = ''
         xrandr --output DisplayPort-0 --pos 0x0 --output HDMI-A-0 --pos 0x1080
-        feh --bg-fill ~/wallpaper.png
+        feh --bg-fill ~/Pictures/76405516.jpg
       '';
     };
   };
