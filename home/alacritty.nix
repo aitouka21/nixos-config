@@ -34,8 +34,8 @@
 
       colors = {
         primary = {
-          background = "#241e3d";
-          foreground = "#c0bbcb";
+          background = "#1c1c1d";
+          foreground = "#aba6b5";
         };
 
         cursor = {
