@@ -46,7 +46,7 @@ main = do
      . ewmhFullscreen
      . ewmh
      $ withEasySB (statusBarProp "xmobar -x 0" (pure myXmobarPP)) defToggleStrutsKey
-     $ withEasySB (statusBarProp "xmobar -x 1" (pure myXmobarPP)) defToggleStrutsKey
+    --  $ withEasySB (statusBarProp "xmobar -x 1" (pure myXmobarPP)) defToggleStrutsKey
      $ def
     { modMask  = mod4Mask
     , terminal = "alacritty"

@@ -22,8 +22,8 @@
       # blur settings
       blur = {
         method = "gaussian";
-        size = 10;
-        deviation = 5.0;
+        size = 8;
+        deviation = 3.0;
       };
     };
   };

@@ -1,8 +1,8 @@
 Config { overrideRedirect = False
         , font     = "xft:Roboto:size=12:bold"
         , border = NoBorder
-        , bgColor = "#000000"
-        , fgColor = "#929AAD"
+        , bgColor = "#1c1c1d"
+        , fgColor = "#aba6b5"
         , alpha = 255
         , position = TopSize L 100 30
         , commands = [ Run Date "%a %Y-%m-%d <fc=#8087ee>%H:%M:%S</fc>" "date" 1
